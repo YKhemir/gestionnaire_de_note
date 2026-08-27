@@ -10,37 +10,45 @@ print(noteEleve)
 moyenne = statistics.mean(noteEleve[eleve])
 print(moyenne)
 
-resultat = print("salut")
-print(resultat)
+
 
 reponse = input("voulez vous ajouter un élève ?")
-while(reponse == "oui"):
-    print(str(input ("entrez le nom de l'élève: ")))
-    print(float(input("entrez une note :  ")))
-    print(float(input("entrez une note :  ")))
-    moyenne = statistics.mean(noteEleve[eleve])
-    print(moyenne)
+while(reponse.lower() == "oui"):
+    eleve_autre = (str(input ("entrez le nom de l'élève: ")))
+    note1_eleve_autre =(float(input("entrez une note :  ")))
+    note2_eleve_autre = (float(input("entrez une note :  ")))
+    noteEleve[eleve_autre] = [note1_eleve_autre, note2_eleve_autre]
 
-# noteEleve = {}
-# noteEleve["Yasmine"] = 15
-# noteEleve["Yasmine"] = 12
-# print(noteEleve)
+    
+
+    #print(float(note))
+
+    ajouterNote = input("Ajouter une note : répond Oui ou Non")
+
+    if( ajouterNote.lower() == "oui"):
+        note = float(input("Entrez une nouvelle note : "))
+        print("Voici la note   "+ str(note))
+        notesEleve = noteEleve[eleve_autre] 
+        notesEleve.append(note)
+
+        ajouterMoyenne = input("Vous voulez une  ajouter une moyenne ? ")
+
+        if ajouterMoyenne.lower() == "oui" :
+            moyenne = statistics.mean(noteEleve[eleve_autre])
+            print(moyenne)
+
+    elif ajouterNote.lower() == "non":
+        print("Alors aurevoir !")
+
+    else:
+        print("Désolé veuillez refaire : ")
+
+    reponse = input("voulez vous ajouter un élève ?")
 
 
-
-# print(float(note))
-#ajouterNote = input("Ajouter une note : répond Oui ou Non")
-# if( ajouterNote == "Oui"):
-#     print("Voici la note   "+ note)
-# elif ajouterNote != "Non" and ajouterNote != "Oui":
-#     print(note)
-# else:
-#     print("Désolé veuillez refaire : ")
-
+print("au revoir")
+   
 #noteEleve.append(note)
 
-# test = {"yasmine":[12,15,18]}
-# test["yasmine"].append(10)
 
-# print(test)
 
