@@ -1,10 +1,14 @@
 import statistics 
 noteEleve = {}
+num_classe_eleves = {}
+
+classe_eleve = str(input("entrez un nom de classe : "))
 eleve = str(input ("entrez le nom de l'élève: "))
 note = float(input("entrez une note :  "))
 note1 = float(input("entrez une note :  "))
 
 
+num_classe_eleves[eleve] = classe_eleve
 noteEleve[eleve] = [note,note1]
 print(noteEleve)
 moyenne = statistics.mean(noteEleve[eleve])
@@ -24,7 +28,7 @@ while(reponse.lower() == "oui"):
     #print(float(note))
 
     ajouterNote = input("Ajouter une note : répond Oui ou Non")
-
+    print(repr(ajouterNote))
     if( ajouterNote.lower() == "oui"):
         note = float(input("Entrez une nouvelle note : "))
         print("Voici la note   "+ str(note))
