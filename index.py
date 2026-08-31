@@ -1,58 +1,68 @@
+# num_classe_eleves  un fichier json et en lien avec noteEleve 
 import statistics 
 noteEleve = {}
-num_classe_eleves = {}
 
 classe_eleve = str(input("entrez un nom de classe : "))
 eleve = str(input ("entrez le nom de l'élève: "))
 note = float(input("entrez une note :  "))
 note1 = float(input("entrez une note :  "))
 
+# noteEleve = {
+#          "jojo" : {"classe": "3ème 5", "notes": [10, 10]}
+#              }
 
-num_classe_eleves[eleve] = classe_eleve
-noteEleve[eleve] = [note,note1]
+noteEleve[eleve] = {"classe": classe_eleve, "notes": [note, note1]} 
 print(noteEleve)
-moyenne = statistics.mean(noteEleve[eleve])
-print(moyenne)
+moyenne = statistics.mean(noteEleve[eleve]["notes"])
+print("La moyennes est de " + str(moyenne))
 
 
 
-reponse = input("voulez vous ajouter un élève ?")
+reponse = input("voulez vous ajouter un élève ? ")
 while(reponse.lower() == "oui"):
-    eleve_autre = (str(input ("entrez le nom de l'élève: ")))
-    note1_eleve_autre =(float(input("entrez une note :  ")))
-    note2_eleve_autre = (float(input("entrez une note :  ")))
-    noteEleve[eleve_autre] = [note1_eleve_autre, note2_eleve_autre]
+     classe_eleve_autre = str((input("entrez un nom de classe : ")))
+     eleve_autre = (str(input ("entrez le nom de l'élève: ")))
+     note1_eleve_autre =(float(input("entrez une note :  ")))
+     note2_eleve_autre = (float(input("entrez une note :  ")))
+
+     noteEleve[eleve_autre] = { "classe": classe_eleve_autre ,
+                                "notes": [note1_eleve_autre, 
+                                          note2_eleve_autre]
+                              }
+     moyenne_autre = statistics.mean(noteEleve[eleve_autre]["notes"])
+     print(f"La moyenne est de {moyenne_autre}")
 
     
 
-    #print(float(note))
+    
 
-    ajouterNote = input("Ajouter une note : répond Oui ou Non")
-    print(repr(ajouterNote))
-    if( ajouterNote.lower() == "oui"):
-        note = float(input("Entrez une nouvelle note : "))
-        print("Voici la note   "+ str(note))
-        notesEleve = noteEleve[eleve_autre] 
-        notesEleve.append(note)
+     ajouterNote = input("Ajouter une note : répond Oui ou Non")
 
-        ajouterMoyenne = input("Vous voulez une  ajouter une moyenne ? ")
+     if( ajouterNote.lower() == "oui"):
+         note = float(input("Entrez une nouvelle note : "))
+         print("Voici la note   "+ str(note))
+         notesEleve = { "classe": classe_eleve_autre ,
+                        "notes" : [note1_eleve_autre, note2_eleve_autre]} 
+         notesEleve["notes"].append(note)
 
-        if ajouterMoyenne.lower() == "oui" :
-            moyenne = statistics.mean(noteEleve[eleve_autre])
-            print(moyenne)
+#         ajouterMoyenne = input("Vous voulez une  ajouter une moyenne ? ")
 
-    elif ajouterNote.lower() == "non":
-        print("Alors aurevoir !")
+#         if ajouterMoyenne.lower() == "oui" :
+#             moyenne = statistics.mean(noteEleve[eleve_autre])
+#             print(moyenne)
 
-    else:
-        print("Désolé veuillez refaire : ")
+#     elif ajouterNote.lower() == "non":
+#         print("Alors aurevoir !")
 
-    reponse = input("voulez vous ajouter un élève ?")
+#     else:
+#         print("Désolé veuillez refaire : ")
+
+#     reponse = input("voulez vous ajouter un élève ?")
 
 
-print("au revoir")
+# print("au revoir")
    
-#noteEleve.append(note)
+# #noteEleve.append(note)
 
 
 
