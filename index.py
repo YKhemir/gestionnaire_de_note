@@ -41,28 +41,27 @@ while(reponse.lower() == "oui"):
      if( ajouterNote.lower() == "oui"):
          note = float(input("Entrez une nouvelle note : "))
          print("Voici la note   "+ str(note))
-         notesEleve = { "classe": classe_eleve_autre ,
-                        "notes" : [note1_eleve_autre, note2_eleve_autre]} 
-         notesEleve["notes"].append(note)
+         #notesEleve = { "classe": classe_eleve_autre ,
+          #              "notes" : [note1_eleve_autre, note2_eleve_autre]} 
+         #notesEleve["notes"].append(note)
+         notesEleve = noteEleve[eleve_autre]["notes"]
+         notesEleve.append(note)
+         ajouterMoyenne = input("Vous voulez afficher sa  moyenne ? ")
 
-#         ajouterMoyenne = input("Vous voulez une  ajouter une moyenne ? ")
+         if ajouterMoyenne.lower() == "oui" :
+             moyenne = statistics.mean(noteEleve[eleve_autre]["notes"])
+             print(moyenne)
 
-#         if ajouterMoyenne.lower() == "oui" :
-#             moyenne = statistics.mean(noteEleve[eleve_autre])
-#             print(moyenne)
+     elif ajouterNote.lower() == "non":
+         print("Alors aurevoir !")
 
-#     elif ajouterNote.lower() == "non":
-#         print("Alors aurevoir !")
+     else:
+         print("Désolé veuillez refaire : ")
 
-#     else:
-#         print("Désolé veuillez refaire : ")
-
-#     reponse = input("voulez vous ajouter un élève ?")
+     reponse = input("voulez vous ajouter un élève ?")
 
 
-# print("au revoir")
-   
-# #noteEleve.append(note)
+
 
 
 
