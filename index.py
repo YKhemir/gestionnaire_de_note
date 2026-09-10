@@ -1,6 +1,18 @@
-# num_classe_eleves  un fichier json et en lien avec noteEleve 
+# num_classe_eleves  un fichier json et en lien avec noteEleve
+import json  
 import statistics 
+
+#with open("fichier_eleves.txt","r") as fichier_eleves : 
+ #   json.load()
 noteEleve = {}
+
+try:
+    with open("fichierEleves.txt", "r") as fichier_eleves :
+         noteEleve = json.load(fichier_eleves)
+
+except:
+        noteEleve = {}
+
 
 classe_eleve = str(input("entrez un nom de classe : "))
 eleve = str(input ("entrez le nom de l'élève: "))
@@ -13,6 +25,10 @@ note1 = float(input("entrez une note :  "))
 
 noteEleve[eleve] = {"classe": classe_eleve, "notes": [note, note1]} 
 print(noteEleve)
+
+with open("fichierEleves.txt","w") as fichierEleve : 
+     json.dump(noteEleve, fichierEleve)
+
 moyenne = statistics.mean(noteEleve[eleve]["notes"])
 print("La moyennes est de " + str(moyenne))
 
@@ -32,7 +48,10 @@ while(reponse.lower() == "oui"):
      moyenne_autre = statistics.mean(noteEleve[eleve_autre]["notes"])
      print(f"La moyenne est de {moyenne_autre}")
 
-    
+
+     with open("fichierEleves.txt","w") as fichierEleve :
+          json.dump(noteEleve, fichierEleve)
+     
 
     
 
