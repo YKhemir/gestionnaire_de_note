@@ -77,10 +77,11 @@ while(reponse.lower() == "oui"):
      else:
          print("Désolé veuillez refaire : ")
 
-     reponse = input("voulez vous ajouter un élève ?")
+     reponse = input("voulez vous ajouter un élève ?") # ici je ne comprend pas sa devrias refaire dans la boucle non ? 
+     
 
 
-
+print("Aurevoir!!!")
 
 
 
