@@ -2,6 +2,13 @@
 import json  
 import statistics 
 
+def verifie_notes(note):
+    while not(note > 0 and note  <= 20):
+             print("Veuillez refaire la note n'est pas entre 0 et 20 : " )
+             note  = float(input("Entrez une note : "))
+
+    return note
+
 #with open("fichier_eleves.txt","r") as fichier_eleves : 
  #   json.load()
 noteEleve = {}
@@ -19,13 +26,11 @@ eleve = str(input ("entrez le nom de l'élève: "))
 note = float(input("entrez une note :  "))
 note1 = float(input("entrez une note :  "))
 
-while not(note> 0 and note <= 20):
-    print("Veuillez refaire la note n'est pas entre 0 et 20 : ")
-    note = float(input("Entrez une note : "))
 
-while not(note1> 0 and note1 <= 20):
-    print("Veuillez refaire la note n'est pas entre 0 et 20 : ")
-    note1 = float(input("Entrez une note : "))
+note = verifie_notes(note)
+note1 = verifie_notes(note1)
+
+
      
 # noteEleve = {
 #          "jojo" : {"classe": "3ème 5", "notes": [10, 10]}
@@ -50,15 +55,9 @@ while(reponse.lower() == "oui"):
      note2_eleve_autre = (float(input("entrez une note :  ")))
 
 
-     while not(note1_eleve_autre> 0 and note1_eleve_autre <= 20):
-        print("Veuillez refaire la note n'est pas entre 0 et 20 : ")
-        note1_eleve_autre = float(input("Entrez une note : "))
-
-     while not(note2_eleve_autre > 0 and note2_eleve_autre  <= 20):
-         print("Veuillez refaire la note n'est pas entre 0 et 20 : ")
-         note2_eleve_autre  = float(input("Entrez une note : "))
-
-
+     note1_eleve_autre = verifie_notes(note1_eleve_autre)
+     note2_eleve_autre = verifie_notes(note2_eleve_autre)
+    
      noteEleve[eleve_autre] = { "classe": classe_eleve_autre ,
                                 "notes": [note1_eleve_autre, 
                                           note2_eleve_autre]
@@ -77,9 +76,7 @@ while(reponse.lower() == "oui"):
     
      if( ajouterNote.lower() == "oui"):
          note = float(input("Entrez une nouvelle note : "))
-         while not(note > 0 and note  <= 20):
-              print("Veuillez refaire la note n'est pas entre 0 et 20 : ")
-              note  = float(input("Entrez une note : "))
+         note = verifie_notes(note)
          print("Voici la note   "+ str(note))
          #notesEleve = { "classe": classe_eleve_autre ,
           #              "notes" : [note1_eleve_autre, note2_eleve_autre]} 
